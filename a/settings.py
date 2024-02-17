@@ -25,10 +25,7 @@ SECRET_KEY = 'django-insecure-i9#)c(7c8%so_2a5t%+r59_&qns#1(5a7i*)m7s!xi*+j0!qi^
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = [
-    '*',
-    '.vercel.app'
-    ]
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
@@ -78,7 +75,10 @@ WSGI_APPLICATION = 'a.wsgi.application'
 # https://docs.djangoproject.com/en/5.0/ref/settings/#databases
 
 DATABASES = {
-    
+    'default': {
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': BASE_DIR / 'db.sqlite3',
+    }
 }
 
 
@@ -115,7 +115,6 @@ USE_TZ = True
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/5.0/howto/static-files/
-
 
 STATIC_URL = '/static/'
 STATICFILES_DIRS =[
