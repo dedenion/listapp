@@ -1,0 +1,38 @@
+{% load static %}
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="utf-8">
+    <title>テストWebアプリ</title>
+    <link rel="stylesheet" href="{% static "css/style.css" %}"/>
+    <script src="{% static 'javascript/sample.js' %}"></script>
+  </head>
+  <body>
+    <h1 id="test">飼い主を探しています</h1>
+    <img id="img1" src="{% static "images/test_img.png" %}" alt="表示できません">
+    <div class="all">
+    <p>{{ insert_something }}</p>
+    <p>作成者は<b id='test'>{{ name }}</b>です。</p>
+
+    <p>{{ insert_forms|linebreaksbr }}</p>
+    <form action="{% url 'app1:index' %}" method="post">
+      {% csrf_token %}
+      {{ form }}
+      <input type="submit" value="送信">
+    </form>
+
+
+    <p>作成者は<b id="test">{{ name }}</b>です。</p>
+
+    <h2>タイトル表示</h2>
+    <ul>
+      {% for title in test_titles %}
+        {% if title == 'title 2'%}
+          <li>{{ title }}</li>
+        {% endif %}
+      {% endfor %}
+    </ul>
+</div>
+    
+  </body>
+</html>
